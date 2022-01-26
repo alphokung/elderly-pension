@@ -11,7 +11,7 @@
             <div class="column">
               <img src="~/assets/9m.webp" class="icon-menu" />
               <div class="mt-2 is-size-5 has-text-weight-semibold">
-                มีผู้สูงอายุมากกว่า 9 ล้านคน
+                มีผู้สูงอายุกว่า 9 ล้านคน
                 <br />ที่มีสิทธิได้รับเบี้ยยังชีพผู้สูงอายุ
               </div>
             </div>
@@ -30,12 +30,12 @@
             </div>
           </div>
 
-          <a
-            href="#calculate"
-            class="button is-large is-black has-text-white"
-            style="width: 320px; height: 80px"
-            >เริ่มสมัครวันไหน ไม่เสียสิทธิ</a
-          >
+          <div class="mt-4">
+            <br>
+            <a href="#calculate" class="button main-button has-text-white"
+              >คลิกเพื่อคำนวณ ว่าควรสมัครวันไหน</a
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -84,20 +84,23 @@
           <div class="columns">
             <div class="column">
               <img src="~/assets/card.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
-                สำเนาบัตรประประชาชน
+              <div class=" is-size-4 has-text-weight-semibold">
+                สำเนาบัตรประประชาชน<br>
+                (จำนวน 1 ชุด)
               </div>
             </div>
             <div class="column">
               <img src="~/assets/house.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
-                สำเนาทะเบียนบ้าน
+              <div class=" is-size-4 has-text-weight-semibold">
+                สำเนาทะเบียนบ้าน<br>
+                (จำนวน 1 ชุด)
               </div>
             </div>
             <div class="column">
               <img src="~/assets/bookbank.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
-                สำเนาสมุดบัญชีออมทรัพย์
+              <div class=" is-size-4 has-text-weight-semibold">
+                สำเนาสมุดบัญชีออมทรัพย์<br>
+                (จำนวน 1 ชุด)
               </div>
             </div>
           </div>
@@ -110,11 +113,7 @@
     </section>
 
     <section id="calculate" class="section has-background-black has-text-white">
-      <h1 class="title is-size-2">วิธีสมัคร</h1>
-      <span
-        >สามารถขอรับเบี้ยได้ที่สำนักงานเขต
-        หรือเทศบาลตามที่อยู่ในทะเบียนบ้าน</span
-      >
+      <h1 class="title is-size-2">คำนวณวันที่สามารถยื่นลงทะเบียนได้</h1>
       <div>กรุณาระบุวันเกิดของท่าน</div>
 
       <div class="field is-horizontal">
@@ -159,7 +158,7 @@
             </div>
           </div>
           <div class="field">
-            <button class="button is-black is-fullwidth" @click="search">
+            <button class="button has-text-white is-fullwidth" @click="search">
               คำนวน
             </button>
           </div>
@@ -167,7 +166,7 @@
       </div>
       <hr />
 
-      <div  v-bind:class="{ 'is-hidden':!loading }">
+      <div v-bind:class="{ 'is-hidden': !loading }">
         <div class="info__box">
           <div class="left_box">
             <p class="shinny info__text_one"></p>
@@ -200,72 +199,86 @@
         </div>
       </div>
 
-      <div  v-bind:class="{ 'is-hidden':loading }">
-        <div class="mb-6 has-text-centered">
+      <div v-bind:class="{ 'is-hidden': loading }">
+        <div class="mb-5 has-text-centered">
           <strong>ประมาณการเงินได้ </strong>
           <h1 class="title hero-answer" id="estimatePension">165,600 บาท</h1>
           <span class="has-text-left text-muted"
             >(ตัวเลขนี้เป็นการประมาณการ หากมีอายุถึง 80 ปี)</span
           >
         </div>
+
+<div class="chart p-0 mb-6">
+          <strong>เงินที่ได้ ในแต่ละช่วงอายุ </strong>
+          <div class="skills">
+            <div class="charts ">
+              <div class="chart chart--dev">
+                <ul class="chart--horiz">
+                  <li class="chart__bar" style="width: 70%">
+                    <span class="chart__label">
+                       60-69 ปี รับ 600 บาท/เดือน</span
+                    >
+                  </li>
+                  <li class="chart__bar" style="width: 80%">
+                    <span class="chart__label">
+                       70-79 ปี รับ 700 บาท/เดือน</span
+                    >
+                  </li>
+                  <li class="chart__bar" style="width: 90%">
+                    <span class="chart__label">
+                       80-89 ปี รับ 800 บาท/เดือน</span
+                    >
+                  </li>
+                  <li class="chart__bar" style="width: 100%">
+                    <span class="chart__label">
+                       90 ปีขึ้นไป รับ 1,000 บาท/เดือน</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div class="columns">
           <div class="column is-half is-full-mobile">
             <strong>วันแรกที่ลงทะเบียนได้ </strong>
-            <h1 class="title answer mb-4" id="registerDate">{{registerDate}}</h1>
+            <h1 class="title answer mb-4" id="registerDate">
+              {{ registerDate }}
+            </h1>
             <div id="registerDateDesc" class="has-text-left text-muted">
-              เพื่อไม่ให้เสียสิทธิ โปรดลงทะเบียนระหว่างวันที่<br> 1 ตุลาคม - 30 พฤศจิกายน {{firstPeriod}} หรือ<br> 1 มกราคม - 30 กันยายน {{secondPeriod}}
-              </div>
+              เพื่อไม่ให้เสียสิทธิ โปรดลงทะเบียนระหว่างวันที่<br />
+              1 ตุลาคม - 30 พฤศจิกายน {{ firstPeriod }} หรือ<br />
+              1 มกราคม - 30 กันยายน {{ secondPeriod }}
+            </div>
           </div>
 
           <div class="column is-half is-full-mobile">
-            <strong>รับเงินชราภาพงวดแรก วันที่ </strong><br />
+            <strong>รับเบี้ยยังชีพผู้สูงอายุงวดแรกวันที่ </strong><br />
             <h1 class="title answer" id="firstReceivedDate">
-              {{firstReceivedDate}}
-              </h1>
+              {{ firstReceivedDate }}
+            </h1>
             <div class="has-text-left text-muted">
               (เงินจะเข้าทุกวันที่ 10 ของเดือน)
             </div>
           </div>
         </div>
 
-        <div class="mt-5 is-fullwidth is-hidden">
-          <strong>ประมาณการเงินได้ </strong><br />
-          <div class="search-table-outter wrapper">
-            <table id="estimate" class="table is-fullwidth">
-              <thead>
-                <tr>
-                  <th style="width: 200px !important">อายุ (ปี)</th>
-                  <td>ม.ค.</td>
-                  <td>ก.พ.</td>
-                  <td>มี.ค.</td>
-                  <td>เม.ย.</td>
-                  <td>พ.ค.</td>
-                  <td>มิ.ย.</td>
-                  <td>ก.ค.</td>
-                  <td>ส.ค.</td>
-                  <td>ก.ย.</td>
-                  <td>ต.ค.</td>
-                  <td>พ.ย.</td>
-                  <td>ธ.ค.</td>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
+        
       </div>
     </section>
 
     <footer class="footer">
       <div class="content has-text-centered is-size-6">
-        ขอบคุณสูตรการคำนวนจากคุณ
-        <a href="https://www.youtube.com/watch?v=9BICvbFWlRI"
+        ขอบคุณสูตรการคำนวนจากคุณ <a href="https://www.youtube.com/watch?v=9BICvbFWlRI" target="_blank"
           >ทศพล เชี่ยวชาญประพันธ์
         </a>
         <br />
         <a
           class="is-underlined"
           href="https://www.youtube.com/watch?v=9BICvbFWlRI"
+          target="_blank"
           >ดูวิธีการคำนวนโดยละเอียด</a
         >
       </div>
@@ -280,10 +293,10 @@ export default {
       day: 1,
       month: 5,
       year: 1963,
-        firstReceivedDate:'',
-        registerDate:'',
-        firstPeriod:'',
-        secondPeriod:'',
+      firstReceivedDate: "",
+      registerDate: "",
+      firstPeriod: "",
+      secondPeriod: "",
       loading: false,
       years: [],
       months: [
@@ -340,14 +353,11 @@ export default {
 
         const y60o = fiscalYear + 543;
 
-      
-
         vm.firstReceivedDate = firstDate.toLocaleDateString("th-TH", options);
         vm.registerDate = "1 ตุลาคม " + (registerDate + 543);
-        vm.firstPeriod = `${registerDate + 543}`
-        vm.secondPeriod = `${registerDate + 543 + 1}`         
+        vm.firstPeriod = `${registerDate + 543}`;
+        vm.secondPeriod = `${registerDate + 543 + 1}`;
         vm.loading = false;
-
       }, 500);
     },
   },
