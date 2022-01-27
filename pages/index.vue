@@ -31,7 +31,7 @@
           </div>
 
           <div class="mt-4">
-            <br>
+            <br />
             <a href="#calculate" class="button main-button has-text-white"
               >คลิกเพื่อคำนวณ ว่าควรสมัครวันไหน</a
             >
@@ -84,22 +84,22 @@
           <div class="columns">
             <div class="column">
               <img src="~/assets/card.webp" class="icon-menu" />
-              <div class=" is-size-4 has-text-weight-semibold">
-                สำเนาบัตรประประชาชน<br>
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาบัตรประประชาชน<br />
                 (จำนวน 1 ชุด)
               </div>
             </div>
             <div class="column">
               <img src="~/assets/house.webp" class="icon-menu" />
-              <div class=" is-size-4 has-text-weight-semibold">
-                สำเนาทะเบียนบ้าน<br>
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาทะเบียนบ้าน<br />
                 (จำนวน 1 ชุด)
               </div>
             </div>
             <div class="column">
               <img src="~/assets/bookbank.webp" class="icon-menu" />
-              <div class=" is-size-4 has-text-weight-semibold">
-                สำเนาสมุดบัญชีออมทรัพย์<br>
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาสมุดบัญชีออมทรัพย์<br />
                 (จำนวน 1 ชุด)
               </div>
             </div>
@@ -119,19 +119,24 @@
       <div class="field is-horizontal">
         <div class="field-body">
           <div class="field">
-            <div class="select is-fullwidth">
-              <select v-model="day">
-                <option value="">กรุณาระบุวันเกิด</option>
+            <div class="select is-fullwidth" v-bind:class="{ 'is-danger': isDayDanger }">
+              <select v-model="day" > 
+                <option value="" >กรุณาระบุวันเกิด</option>
+                <option value="-1">ไม่มีวันเกิด</option>
                 <option v-for="item in days" :value="item" :key="item">
                   {{ item }}
                 </option>
               </select>
+              <div v-if="isDayDanger === true" class="has-text-danger is-size-6">
+                กรุณาระบุวันเกิด
+              </div>
             </div>
           </div>
           <div class="field">
-            <div class="select is-fullwidth">
+            <div class="select is-fullwidth" v-bind:class="{ 'is-danger': isMonthDanger }">
               <select v-model="month">
                 <option value="">กรุณาระบุเดือนเกิด</option>
+                <option value="-1">ไม่มีเดือนเกิด</option>
                 <option
                   v-for="item in months"
                   :value="item.value"
@@ -140,12 +145,15 @@
                   {{ item.name }}
                 </option>
               </select>
+              <div v-if="isMonthDanger === true" class="has-text-danger is-size-6">
+                กรุณาระบุเดือนเกิด
+              </div>
             </div>
           </div>
 
           <div class="field">
-            <div class="select is-fullwidth">
-              <select v-model="year">
+            <div class="select is-fullwidth" v-bind:class="{ 'is-danger': isYearDanger }">
+              <select v-model="year" >
                 <option value="">กรุณาระบุปีเกิด</option>
                 <option
                   v-for="item in years"
@@ -155,6 +163,9 @@
                   {{ item.name }}
                 </option>
               </select>
+              <div v-if="isYearDanger === true" class="has-text-danger is-size-6">
+                กรุณาระบุปีเกิด
+              </div>
             </div>
           </div>
           <div class="field">
@@ -166,6 +177,13 @@
       </div>
       <hr />
 
+      <div v-bind:class="{ 'is-hidden': isSearch }" class="has-text-centered">
+        กรุณาระบุวันเกิดของท่าน ตามบัตรประชาชน เพื่อคำนวณวันที่สามารถยื่นลงทะเบียนรับเบี้ยยังชีพผู้สูงอายุได้
+      </div>
+
+      <div v-bind:class="{ 'is-hidden': !isSearch }">
+        
+      
       <div v-bind:class="{ 'is-hidden': !loading }">
         <div class="info__box">
           <div class="left_box">
@@ -199,6 +217,7 @@
         </div>
       </div>
 
+      
       <div v-bind:class="{ 'is-hidden': loading }">
         <div class="mb-5 has-text-centered">
           <strong>ประมาณการเงินได้ </strong>
@@ -208,30 +227,30 @@
           >
         </div>
 
-<div class="chart p-0 mb-6">
+        <div class="chart p-0 mb-6">
           <strong>เงินที่ได้ ในแต่ละช่วงอายุ </strong>
           <div class="skills">
-            <div class="charts ">
+            <div class="charts">
               <div class="chart chart--dev">
                 <ul class="chart--horiz">
                   <li class="chart__bar" style="width: 70%">
                     <span class="chart__label">
-                       60-69 ปี รับ 600 บาท/เดือน</span
+                      60-69 ปี รับ 600 บาท/เดือน</span
                     >
                   </li>
                   <li class="chart__bar" style="width: 80%">
                     <span class="chart__label">
-                       70-79 ปี รับ 700 บาท/เดือน</span
+                      70-79 ปี รับ 700 บาท/เดือน</span
                     >
                   </li>
                   <li class="chart__bar" style="width: 90%">
                     <span class="chart__label">
-                       80-89 ปี รับ 800 บาท/เดือน</span
+                      80-89 ปี รับ 800 บาท/เดือน</span
                     >
                   </li>
                   <li class="chart__bar" style="width: 100%">
                     <span class="chart__label">
-                       90 ปีขึ้นไป รับ 1,000 บาท/เดือน</span
+                      90 ปีขึ้นไป รับ 1,000 บาท/เดือน</span
                     >
                   </li>
                 </ul>
@@ -239,7 +258,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="columns">
           <div class="column is-half is-full-mobile">
@@ -264,14 +282,14 @@
             </div>
           </div>
         </div>
-
-        
+      </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="content has-text-centered is-size-6">
-        ขอบคุณสูตรการคำนวนจากคุณ <a href="https://www.youtube.com/watch?v=9BICvbFWlRI" target="_blank"
+        ขอบคุณสูตรการคำนวนจากคุณ
+        <a href="https://www.youtube.com/watch?v=9BICvbFWlRI" target="_blank"
           >ทศพล เชี่ยวชาญประพันธ์
         </a>
         <br />
@@ -290,14 +308,18 @@
 export default {
   data() {
     return {
-      day: 1,
-      month: 5,
-      year: 1963,
+      day: "",
+      month: "",
+      year: "",
       firstReceivedDate: "",
       registerDate: "",
       firstPeriod: "",
       secondPeriod: "",
       loading: false,
+      isSearch: false,
+      isDayDanger:false,
+      isMonthDanger:false,
+      isYearDanger:false,
       years: [],
       months: [
         { name: "มกราคม", value: "0" },
@@ -323,18 +345,33 @@ export default {
     for (let i = 2565; i > 2564 - 100; i--) {
       this.years.push({ name: i, value: i - 543 });
     }
-    this.search();
   },
   methods: {
     search() {
       const vm = this;
-
-      if (vm.day === "" || vm.month === "" || vm.year === "") {
-        alert("กรุณาเลือกวันเกิดก่อน");
+      
+      if (vm.day === "-1") {
+        vm.day = "1";
       }
 
-      vm.loading = true;
+      if (vm.day === "-1") {
+        vm.month = "0";
+      }
 
+      
+        vm.isDayDanger = vm.day === ""
+        vm.isMonthDanger = vm.month === ""
+        vm.isYearDanger = vm.year === ""
+
+      if (vm.isDayDanger || vm.isMonthDanger === "" || vm.isYearDanger === "") {
+        vm.isSearch = false;
+      }
+      else{
+        vm.isSearch=true;
+      }
+
+      
+      vm.loading = true;
       setTimeout(function () {
         let date = new Date(vm.year, vm.month, vm.day);
         date.setDate(date.getDate() - 1);
