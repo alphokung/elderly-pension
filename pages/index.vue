@@ -3,27 +3,27 @@
     <section class="section">
       <div class="container has-text-centered">
         <h1 class="title is-size-1">
-          คำนวนวันลงทะเบียน รับเบี้ยยังชีพผู้สูงอายุ
+          คำนวณวันลงทะเบียน รับเบี้ยยังชีพผู้สูงอายุ
         </h1>
         <h2 class="is-size-3">อย่าให้ความไม่รู้ ทำให้ท่านพลาดสิทธิ</h2>
         <div class="mt-4">
           <div class="columns">
             <div class="column">
               <img src="~/assets/9m.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
+              <div class="mt-2 is-size-5 has-text-weight-semibold has-text-secondary">
                 มีผู้สูงอายุกว่า 9 ล้านคน
                 <br />ที่มีสิทธิได้รับเบี้ยยังชีพผู้สูงอายุ
               </div>
             </div>
             <div class="column">
               <img src="~/assets/7200b.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
+              <div class="mt-2 is-size-5 has-text-weight-semibold has-text-secondary">
                 คือเงินที่คุณอาจไม่ได้รับ <br />ถ้าคุณลงทะเบียนนอกช่วงเวลา
               </div>
             </div>
             <div class="column">
               <img src="~/assets/register.webp" class="icon-menu" />
-              <div class="mt-2 is-size-5 has-text-weight-semibold">
+              <div class="mt-2 is-size-5 has-text-weight-semibold has-text-secondary">
                 ลงทะเบียนที่เขต หรือองค์กรปกครองส่วนท้องถิ่น
                 ตามที่อยู่ในทะเบียนบ้าน
               </div>
@@ -32,7 +32,7 @@
 
           <div class="mt-4">
             <br />
-            <a href="#calculate" class="button main-button has-text-white">กดเพื่อคำนวณวันที่ควรสมัครวันไหน</a>
+            <a href="#calculate" class="button main-button ">กดเพื่อคำนวณวันที่ควรสมัครวันไหน</a>
             <br>
             <div class="text-muted mt-4">ข้อมูลนี้เป็นข้อมูลประมาณการ กรุณาสอบถามข้อมูลเพิ่มเติมที่เขต หรือองค์กรปกครองส่วนท้องถิ่น ตามที่อยู่ในทะเบียนบ้าน</div>
           </div>
@@ -41,7 +41,7 @@
     </section>
 
 <section id="calculate" class="section has-background-black has-text-white">
-      <h1 class="title is-size-2">คำนวณวันที่สามารถยื่นลงทะเบียนได้</h1>
+      <h1 class="title is-size-2 has-text-white">คำนวณวันที่สามารถยื่นลงทะเบียนได้</h1>
       <div>กรุณาระบุวันเกิดของท่าน</div>
 
       <div class="field is-horizontal">
@@ -79,7 +79,7 @@
             </div>
           </div>
 
-          <div class="field">
+          <div class="field mb-4">
             <div class="select is-fullwidth" v-bind:class="{ 'is-danger': isYearDanger }">
               <select v-model="year" >
                 <option value="">กรุณาระบุปีเกิด</option>
@@ -97,8 +97,8 @@
             </div>
           </div>
           <div class="field">
-            <button class="button has-text-white is-fullwidth" @click="search">
-              คำนวน
+            <button class="button  white-button is-fullwidth" @click="search">
+              คำนวณ
             </button>
           </div>
         </div>
@@ -151,7 +151,7 @@
                   แนะนำให้ลงทะเบียนระหว่างวันที่ 1 ต.ค. - 30 พ.ย. {{ firstPeriod }} หรือ 
                   1 ม.ค. - 30 ก.ย. {{ secondPeriod }}
                 </div>
-                <h1 class="title answer" id="registerDate">
+                <h1 class="title answer mt-2" id="registerDate">
                   {{ registerDate }}
                 </h1>
                 
@@ -162,7 +162,7 @@
                 <div class="has-text-left text-muted">
                   เงินจะเข้าทุกวันที่ 10 ของเดือน
                 </div>
-                <h1 class="title answer" id="firstReceivedDate">
+                <h1 class="title answer  mt-2" id="firstReceivedDate">
                   {{ firstReceivedDate }}
                 </h1>
                 
@@ -173,7 +173,7 @@
               <div class="column is-half is-full-mobile  mb-4">
                 <strong>ประมาณการเงินได้ </strong><br>
                 <span class="has-text-left text-muted">ตัวเลขนี้เป็นการประมาณการ หากมีอายุถึง 80 ปี</span>
-                <h1 class="title answer" id="registerDate">
+                <h1 class="title answer  mt-2" id="registerDate">
                   165,600 บาท
                 </h1>
                 
@@ -215,15 +215,16 @@
           </div>
           
         </div>
-      </div>
-
-      <div class="mt-4 has-text-centered">
+        <div class="mt-4 has-text-centered">
             <br />
             <a href="#whois" class="button main-button has-text-white">กดเพื่อดูคุณสมบัติผู้มีสิทธิรับเงิน</a>            
       </div>
+      </div>
+
+      
     </section>
 
-    <section id="whois" class="section has-text-white has-background-primary">
+    <section id="whois" class="section  has-background-primary">
       <h1 class="title is-size-2">
         คุณสมบัติผู้มีสิทธิรับเงินเบี้ยยังชีพผู้สูงอายุ
       </h1>
@@ -302,7 +303,7 @@
 
     <footer class="footer">
       <div class="content has-text-centered is-size-6">
-        ขอบคุณสูตรการคำนวนจากคุณ<br>
+        ขอบคุณสูตรการคำนวณจากคุณ<br>
         <a href="https://www.youtube.com/watch?v=9BICvbFWlRI" target="_blank"
           >ทศพล เชี่ยวชาญประพันธ์
         </a>
@@ -311,7 +312,7 @@
           class="is-underlined"
           href="https://www.youtube.com/watch?v=9BICvbFWlRI"
           target="_blank"
-          >ดูวิธีการคำนวนโดยละเอียด</a
+          >ดูวิธีการคำนวณโดยละเอียด</a
         >
       </div>
     </footer>
