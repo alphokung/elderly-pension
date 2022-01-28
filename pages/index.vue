@@ -323,9 +323,9 @@
 export default {
   data() {
     return {
-      day: "1",
-      month: "1",
-      year: "1989",
+      day: "",
+      month: "",
+      year: "",
       firstReceivedDate: "",
       registerDate: "",
       firstPeriod: "",
