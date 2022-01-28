@@ -96,7 +96,7 @@ section{
     font-size: 0.8em;
     line-height: 1.4em;
     font-style: italic;
-
+font-weight: lighter;
 }
 
 .hero-answer{
@@ -403,3 +403,4 @@ section{
     line-height: 50px;
   }
 }
+

@@ -32,87 +32,15 @@
 
           <div class="mt-4">
             <br />
-            <a href="#calculate" class="button main-button has-text-white"
-              >คลิกเพื่อคำนวณ ว่าควรสมัครวันไหน</a
-            >
+            <a href="#calculate" class="button main-button has-text-white">กดเพื่อคำนวณวันที่ควรสมัครวันไหน</a>
+            <br>
+            <div class="text-muted mt-4">ข้อมูลนี้เป็นข้อมูลประมาณการ กรุณาสอบถามข้อมูลเพิ่มเติมที่เขต หรือองค์กรปกครองส่วนท้องถิ่น ตามที่อยู่ในทะเบียนบ้าน</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="whois" class="section has-text-white has-background-primary">
-      <h1 class="title is-size-2">
-        คุณสมบัติผู้มีสิทธิรับเงินเบี้ยยังชีพผู้สูงอายุ
-      </h1>
-      <ul>
-        <li>สัญชาติไทย</li>
-        <li>
-          อายุ 60 ตามกฎหมาย (กรณีทะเบียนราษฎร์ระบุเฉพาะปีเกิด ถือว่าเกิด 1
-          มกราคม ของปีนั้น)
-        </li>
-      </ul>
-
-      <h1 class="title is-size-4 mt-6 mb-2">ผู้ไม่มีสิทธิได้รับเงิน</h1>
-      <ul>
-        <li>
-          ผู้ที่ได้รับสวัสดิการหรือสิทธิประโยชน์อื่นใดจากหน่วยงานของรัฐ
-          รัฐวิสาหกิจ หรือเทศบาล อบต.
-        </li>
-        <li>
-          ผู้ที่ได้รับผู้รับเงินบำนาญ เบี้ยหวัด บำนาญพิเศษ
-          หรือเงินอื่นในลักษณะเดียวกัน
-        </li>
-        <li>
-          ผู้สูงอายุที่อยู่ในสถานสงเคราะห์ของรัฐ หรือองค์กรปกครองส่วนท้องถิ่น
-        </li>
-        <li>
-          ผู้ที่ได้รับเงินเดือน ค่าตอบแทน รายได้ประจำ
-          หรือผลประโยชน์ตอบแทนอย่างอื่นที่รัฐหรือเทศบาล อบต.จัดให้เป็นประจำ
-          ยกเว้นผู้พิการและผู้ป่วยเอดส์ตามระเบียบ
-        </li>
-      </ul>
-    </section>
-
-    <section id="document" class="section">
-      <div class="container has-text-centered">
-        <h1 class="title is-size-1">เอกสารที่ต้องใช้</h1>
-        <h2 class="is-size-4">
-          เอกสารที่ต้องใช้ในการไปยื่นลงทะเบียนที่เขต
-          หรือองค์กรปกครองส่วนท้องถิ่น ตามที่อยู่ในทะเบียนบ้าน
-        </h2>
-        <div class="mt-4">
-          <div class="columns">
-            <div class="column">
-              <img src="~/assets/card.webp" class="icon-menu" />
-              <div class="is-size-4 has-text-weight-semibold">
-                สำเนาบัตรประประชาชน<br />
-                (จำนวน 1 ชุด)
-              </div>
-            </div>
-            <div class="column">
-              <img src="~/assets/house.webp" class="icon-menu" />
-              <div class="is-size-4 has-text-weight-semibold">
-                สำเนาทะเบียนบ้าน<br />
-                (จำนวน 1 ชุด)
-              </div>
-            </div>
-            <div class="column">
-              <img src="~/assets/bookbank.webp" class="icon-menu" />
-              <div class="is-size-4 has-text-weight-semibold">
-                สำเนาสมุดบัญชีออมทรัพย์<br />
-                (จำนวน 1 ชุด)
-              </div>
-            </div>
-          </div>
-          <div class="text-muted has-text-danger">
-            * การยื่นแทน หรือโอนเงินเข้าบัญชีอื่น ต้องมีหนังสือมอบอำนาจตัวจริง
-            พร้อมสำเนาบัตรประชาชน และทะเบียนบ้านของผู้รับมอบอำนาจอย่างละ 1 ชุด
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculate" class="section has-background-black has-text-white">
+<section id="calculate" class="section has-background-black has-text-white">
       <h1 class="title is-size-2">คำนวณวันที่สามารถยื่นลงทะเบียนได้</h1>
       <div>กรุณาระบุวันเกิดของท่าน</div>
 
@@ -181,114 +109,200 @@
         กรุณาระบุวันเกิดของท่าน ตามบัตรประชาชน เพื่อคำนวณวันที่สามารถยื่นลงทะเบียนรับเบี้ยยังชีพผู้สูงอายุได้
       </div>
 
-      <div v-bind:class="{ 'is-hidden': !isSearch }">
-        
-      
-      <div v-bind:class="{ 'is-hidden': !loading }">
-        <div class="info__box">
-          <div class="left_box">
-            <p class="shinny info__text_one"></p>
-            <p class="shinny info__text_two"></p>
-            <p class="shinny info__text_three"></p>
+      <div v-bind:class="{ 'is-hidden': !isSearch }">        
+        <div v-bind:class="{ 'is-hidden': !loading }">
+          <div class="info__box">
+            <div class="left_box">
+              <p class="shinny info__text_one"></p>
+              <p class="shinny info__text_two"></p>
+              <p class="shinny info__text_three"></p>
+            </div>
+            <div class="right_box">
+              <div class="shinny image"></div>
+            </div>
           </div>
-          <div class="right_box">
-            <div class="shinny image"></div>
+          <div class="info__box">
+            <div class="left_box">
+              <p class="shinny info__text_one"></p>
+              <p class="shinny info__text_two"></p>
+              <p class="shinny info__text_three"></p>
+            </div>
+            <div class="right_box">
+              <div class="shinny image"></div>
+            </div>
           </div>
-        </div>
-        <div class="info__box">
-          <div class="left_box">
-            <p class="shinny info__text_one"></p>
-            <p class="shinny info__text_two"></p>
-            <p class="shinny info__text_three"></p>
+          <div class="info__box">
+            <div class="left_box">
+              <p class="shinny info__text_one"></p>
+              <p class="shinny info__text_two"></p>
+              <p class="shinny info__text_three"></p>
+            </div>
+            <div class="right_box">
+              <div class="shinny image"></div>
+            </div>
           </div>
-          <div class="right_box">
-            <div class="shinny image"></div>
-          </div>
-        </div>
-        <div class="info__box">
-          <div class="left_box">
-            <p class="shinny info__text_one"></p>
-            <p class="shinny info__text_two"></p>
-            <p class="shinny info__text_three"></p>
-          </div>
-          <div class="right_box">
-            <div class="shinny image"></div>
-          </div>
-        </div>
-      </div>
+        </div>        
+        <div v-bind:class="{ 'is-hidden': loading }">
+          
+          <div class="columns">
+              <div class="column is-half is-full-mobile mb-4">
+                <strong>วันแรกที่ลงทะเบียนได้ </strong>
+                <div id="registerDateDesc" class="has-text-left text-muted">
+                  แนะนำให้ลงทะเบียนระหว่างวันที่ 1 ต.ค. - 30 พ.ย. {{ firstPeriod }} หรือ 
+                  1 ม.ค. - 30 ก.ย. {{ secondPeriod }}
+                </div>
+                <h1 class="title answer" id="registerDate">
+                  {{ registerDate }}
+                </h1>
+                
+              </div>
 
-      
-      <div v-bind:class="{ 'is-hidden': loading }">
-        <div class="mb-5 has-text-centered">
-          <strong>ประมาณการเงินได้ </strong>
-          <h1 class="title hero-answer" id="estimatePension">165,600 บาท</h1>
-          <span class="has-text-left text-muted"
-            >(ตัวเลขนี้เป็นการประมาณการ หากมีอายุถึง 80 ปี)</span
-          >
-        </div>
+              <div class="column is-half is-full-mobile mb-4">
+                <strong>รับเบี้ยยังชีพผู้สูงอายุงวดแรกวันที่ </strong><br />
+                <div class="has-text-left text-muted">
+                  เงินจะเข้าทุกวันที่ 10 ของเดือน
+                </div>
+                <h1 class="title answer" id="firstReceivedDate">
+                  {{ firstReceivedDate }}
+                </h1>
+                
+              </div>
+          </div>
 
-        <div class="chart p-0 mb-6">
-          <strong>เงินที่ได้ ในแต่ละช่วงอายุ </strong>
-          <div class="skills">
-            <div class="charts">
-              <div class="chart chart--dev">
-                <ul class="chart--horiz">
-                  <li class="chart__bar" style="width: 70%">
-                    <span class="chart__label">
-                      60-69 ปี รับ 600 บาท/เดือน</span
-                    >
-                  </li>
-                  <li class="chart__bar" style="width: 80%">
-                    <span class="chart__label">
-                      70-79 ปี รับ 700 บาท/เดือน</span
-                    >
-                  </li>
-                  <li class="chart__bar" style="width: 90%">
-                    <span class="chart__label">
-                      80-89 ปี รับ 800 บาท/เดือน</span
-                    >
-                  </li>
-                  <li class="chart__bar" style="width: 100%">
-                    <span class="chart__label">
-                      90 ปีขึ้นไป รับ 1,000 บาท/เดือน</span
-                    >
-                  </li>
-                </ul>
+          <div class="columns">
+              <div class="column is-half is-full-mobile  mb-4">
+                <strong>ประมาณการเงินได้ </strong><br>
+                <span class="has-text-left text-muted">ตัวเลขนี้เป็นการประมาณการ หากมีอายุถึง 80 ปี</span>
+                <h1 class="title answer" id="registerDate">
+                  165,600 บาท
+                </h1>
+                
+              </div>
+
+              <div class="column is-half is-full-mobile  mb-4">
+                <div class="chart">
+              <strong>เงินที่ได้ ในแต่ละช่วงอายุ </strong>
+              <div class="skills">
+                <div class="charts">
+                  <div class="chart chart--dev">
+                    <ul class="chart--horiz">
+                      <li class="chart__bar" style="width: 70%">
+                        <span class="chart__label">
+                          60-69 ปี รับ 600 บาท/เดือน</span
+                        >
+                      </li>
+                      <li class="chart__bar" style="width: 80%">
+                        <span class="chart__label">
+                          70-79 ปี รับ 700 บาท/เดือน</span
+                        >
+                      </li>
+                      <li class="chart__bar" style="width: 90%">
+                        <span class="chart__label">
+                          80-89 ปี รับ 800 บาท/เดือน</span
+                        >
+                      </li>
+                      <li class="chart__bar" style="width: 100%">
+                        <span class="chart__label">
+                          90 ปีขึ้นไป รับ 1,000 บาท/เดือน</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
+              </div>
           </div>
-        </div>
-
-        <div class="columns">
-          <div class="column is-half is-full-mobile">
-            <strong>วันแรกที่ลงทะเบียนได้ </strong>
-            <h1 class="title answer mb-4" id="registerDate">
-              {{ registerDate }}
-            </h1>
-            <div id="registerDateDesc" class="has-text-left text-muted">
-              เพื่อไม่ให้เสียสิทธิ โปรดลงทะเบียนระหว่างวันที่<br />
-              1 ตุลาคม - 30 พฤศจิกายน {{ firstPeriod }} หรือ<br />
-              1 มกราคม - 30 กันยายน {{ secondPeriod }}
-            </div>
-          </div>
-
-          <div class="column is-half is-full-mobile">
-            <strong>รับเบี้ยยังชีพผู้สูงอายุงวดแรกวันที่ </strong><br />
-            <h1 class="title answer" id="firstReceivedDate">
-              {{ firstReceivedDate }}
-            </h1>
-            <div class="has-text-left text-muted">
-              (เงินจะเข้าทุกวันที่ 10 ของเดือน)
-            </div>
-          </div>
+          
         </div>
       </div>
+
+      <div class="mt-4 has-text-centered">
+            <br />
+            <a href="#whois" class="button main-button has-text-white">กดเพื่อดูคุณสมบัติผู้มีสิทธิรับเงิน</a>            
       </div>
     </section>
 
+    <section id="whois" class="section has-text-white has-background-primary">
+      <h1 class="title is-size-2">
+        คุณสมบัติผู้มีสิทธิรับเงินเบี้ยยังชีพผู้สูงอายุ
+      </h1>
+      <ul>
+        <li>สัญชาติไทย</li>
+        <li>
+          อายุ 60 ตามกฎหมาย (กรณีทะเบียนราษฎร์ระบุเฉพาะปีเกิด ถือว่าเกิด 1
+          มกราคม ของปีนั้น)
+        </li>
+      </ul>
+
+      <h1 class="title is-size-4 mt-6 mb-2">ผู้ไม่มีสิทธิได้รับเงิน</h1>
+      <ul>
+        <li>
+          ผู้ที่ได้รับสวัสดิการหรือสิทธิประโยชน์อื่นใดจากหน่วยงานของรัฐ
+          รัฐวิสาหกิจ หรือเทศบาล อบต.
+        </li>
+        <li>
+          ผู้ที่ได้รับผู้รับเงินบำนาญ เบี้ยหวัด บำนาญพิเศษ
+          หรือเงินอื่นในลักษณะเดียวกัน
+        </li>
+        <li>
+          ผู้สูงอายุที่อยู่ในสถานสงเคราะห์ของรัฐ หรือองค์กรปกครองส่วนท้องถิ่น
+        </li>
+        <li>
+          ผู้ที่ได้รับเงินเดือน ค่าตอบแทน รายได้ประจำ
+          หรือผลประโยชน์ตอบแทนอย่างอื่นที่รัฐหรือเทศบาล อบต.จัดให้เป็นประจำ
+          ยกเว้นผู้พิการและผู้ป่วยเอดส์ตามระเบียบ
+        </li>
+      </ul>
+      <div class="mt-4 has-text-centered">
+            <br />
+            <a href="#document" class="button main-button has-text-white">กดเพื่อดูเอกสารที่ต้องใช้</a>            
+      </div>
+    </section>
+
+    <section id="document" class="section">
+      <div class="container ">
+         <h1 class="title is-size-2">
+        เอกสารที่ต้องใช้
+      </h1>
+      <div> เอกสารที่ต้องใช้ในการไปยื่นลงทะเบียนที่เขตหรือองค์กรปกครองส่วนท้องถิ่น ตามที่อยู่ในทะเบียนบ้าน</div>
+        <div class="mt-4 has-text-centered">
+          <div class="columns">
+            <div class="column">
+              <img src="~/assets/card.webp" class="icon-menu" />
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาบัตรประประชาชน<br />
+                (จำนวน 1 ชุด)
+              </div>
+            </div>
+            <div class="column">
+              <img src="~/assets/house.webp" class="icon-menu" />
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาทะเบียนบ้าน<br />
+                (จำนวน 1 ชุด)
+              </div>
+            </div>
+            <div class="column">
+              <img src="~/assets/bookbank.webp" class="icon-menu" />
+              <div class="is-size-4 has-text-weight-semibold">
+                สำเนาสมุดบัญชีออมทรัพย์<br />
+                (จำนวน 1 ชุด)
+              </div>
+            </div>
+          </div>
+          <div class="text-muted ">
+            * การยื่นแทน หรือโอนเงินเข้าบัญชีอื่น ต้องมีหนังสือมอบอำนาจตัวจริง
+            พร้อมสำเนาบัตรประชาชน และทะเบียนบ้านของผู้รับมอบอำนาจอย่างละ 1 ชุด
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
     <footer class="footer">
       <div class="content has-text-centered is-size-6">
-        ขอบคุณสูตรการคำนวนจากคุณ
+        ขอบคุณสูตรการคำนวนจากคุณ<br>
         <a href="https://www.youtube.com/watch?v=9BICvbFWlRI" target="_blank"
           >ทศพล เชี่ยวชาญประพันธ์
         </a>
@@ -308,9 +322,9 @@
 export default {
   data() {
     return {
-      day: "",
-      month: "",
-      year: "",
+      day: "1",
+      month: "1",
+      year: "1989",
       firstReceivedDate: "",
       registerDate: "",
       firstPeriod: "",
